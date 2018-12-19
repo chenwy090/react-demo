@@ -1,7 +1,7 @@
 import Home from '../views/home/home'
 import Mine from '../views/mine/mine'
 import Login from '../views/login/login'
-import ErrorPage from '../views/404/404'
+import NotFound from '../views/404/404'
 const routes = [
 	{
 		path:'/',
@@ -29,8 +29,8 @@ const routes = [
 	},
 	{
 		path:'/404',
-		component:ErrorPage,
+		component:NotFound,
 		exact:true
 	}
 ]
-export default routes
+export {routes, NotFound}

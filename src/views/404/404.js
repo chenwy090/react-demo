@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-class Mine extends Component {
+class NotFound extends Component {
   constructor (props) {
     super(props)
     console.log(global.$AxiosFetch)
@@ -11,4 +11,4 @@ class Mine extends Component {
   }
 }
 
-export default Mine
+export default NotFound
