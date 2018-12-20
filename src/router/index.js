@@ -2,6 +2,7 @@ import Home from '../views/home/home'
 import Mine from '../views/mine/mine'
 import Login from '../views/login/login'
 import NotFound from '../views/404/404'
+import FrontendAuth from '../views/FrontendAuth/FrontendAuth'
 const routes = [
 	{
 		path:'/',
@@ -22,15 +23,9 @@ const routes = [
 		requireAuth:false
 	},
 	{
-		path:'/login',
-		component:Login,
-		exact:true,
-		requireAuth:false
-	},
-	{
 		path:'/404',
 		component:NotFound,
 		exact:true
 	}
 ]
-export {routes, NotFound}
+export {routes, NotFound, Login, FrontendAuth}

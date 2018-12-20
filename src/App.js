@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
 import { Route, Redirect, Switch} from 'react-router-dom'
-import {routes, NotFound} from './router'
-const RouteWithSubRoutes = (route) => (
-  <Route path={route.path} exact={route.exact} render={ props =>(
-    route.requireAuth && (localStorage.getItem('loginStatus') !== "true")? 
-    (<Redirect to={{ pathname: "/login", state: { from: props.location } }} />) : 
-    (<route.component {...props} routes={route.routes}/>)
-  )} />
-)
+import {routes, NotFound, Login, FrontendAuth} from './router'
+//路由
+const RouteWithSubRoutes = (route) => {
+    return <Route path={route.path} exact={route.exact} render={ props =>(
+        route.requireAuth && (localStorage.getItem('loginStatus') !== "true") ? (<Redirect to={{ pathname:'/login', state: { from: props.location } }}/>) : (<route.component {...props} routes={route.routes}/>)
+    )}/>
+}
 class App extends Component {
-    componentWillMount(){
-        console.log(111)
-        setTimeout(()=>{
-            return <Redirect to="/login"/>
-        },10000)
+    componentDidMount(){
+        
     }
     render() {
         return (
         <div className='App'>
             <Switch>
-            {routes.map((route, key) => (
-                <RouteWithSubRoutes key={key} {...route} />
-            ))}
-            <Route component={NotFound} />
+                <Route path="/FrontendAuth" component={FrontendAuth}/>
+                <Route path="/login" component={Login} exact />
+                {routes.map((route, key) => (
+                    <RouteWithSubRoutes key={key} {...route} />
+                ))}
+                <Route component={NotFound} />
             </Switch>
         </div>
     );

@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker'
 import AxiosFetch from './fetch'
 // 全局数据请求
 global.$AxiosFetch = AxiosFetch
-
 ReactDOM.render(
 	<BrowserRouter>
 		<App />
@@ -18,3 +17,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
